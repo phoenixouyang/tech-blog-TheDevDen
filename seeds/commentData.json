@@ -1,0 +1,17 @@
+[
+  {
+    "comment_text": "Wow! Very cool",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "comment_text": "Thank you for reading my post!",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "comment_text": "I think a lot of people are scared because it's new - but wait until they see the cool things AI can do.",
+    "user_id": 1,
+    "post_id": 2
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "title": "New Tech Blog 'The Developer's Den' is a Hit!",
+    "description": "People love the brand new blog that was created this month. We hope to see more users on this platform.",
+    "user_id": 1
+  },
+  {
+    "title": "Recent Development in AI",
+    "description": "How does everyone feel about the recent developments in AI? I personally find it exciting! Imagine all the things we can do with ChatGPT, and the improvements to existing programs!",
+    "user_id": 2
+  }
+]
