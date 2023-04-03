@@ -10,7 +10,7 @@
     <div class="post-description">
         {{description}}
     </div>
-    <section>
+<section>
         <h4 class="is-size-4">Comments:</h4>
         <div>
             {{#each comments as |comment|}}
@@ -28,7 +28,7 @@
             <section class="card">
                 <form class="comment-form" data-post_id={{id}}>
                     <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
-                    <button type="submit" id="comment-btn">Comment</button>
+                    <button class="button is-info is-small" type="submit" id="comment-btn">Comment</button>
                 </form>
             </section>
         </div>

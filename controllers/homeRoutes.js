@@ -52,7 +52,7 @@ router.get('/posts/:id', async (req, res) => {
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
 
     res.status(200);
@@ -60,6 +60,7 @@ router.get('/posts/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
@@ -77,6 +78,59 @@ router.get('/dashboard', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
 
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/edit/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Comment,
+          include: [User]
+        }
+      ],
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'Oh no! No post was found with that ID.' });
+      return;
+    }
+    const edit = postData.get({
+      plain: true
+    });
+
+    res.render('edit', {
+      ...edit,
+      logged_in: req.session.logged_in
+    });
+
+    res.status(200);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.put('edit/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.update({
+      title: req.body.title,
+      description: req.body.description,
+    }, { where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    if (!postData) {
+        res.status(404).json({ message: "Sorry, that post could not be found." });
+    }
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }

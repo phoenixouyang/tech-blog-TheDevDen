@@ -7,4 +7,8 @@ module.exports = {
       new Date(date).getFullYear()
     }`;
   },
+  eq: (a, b) => {
+    return a===b;
+  },
 };
+

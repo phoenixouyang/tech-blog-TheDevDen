@@ -1,15 +1,18 @@
-<section class="card">
-  {{#if post.length}}
-    <a href="/posts/{{post.id}}">
+{{#each posts as |post|}}
+    <section class="card post-display" data-post_id={{id}}>
+        <a href="/posts/{{post.id}}">
             <div class="level">
                 <div class="level-left">
                     <header>{{post.title}}</header>
                 </div>
                 <div class="level-right">
-                    <p>Posted by {{post.user.username}} on {{format_date date_created}}</p>
+                    <p>Posted on {{format_date date_created}}</p>
                 </div>
             </div>
         </a>
-  {{/if}}
+        <button class="button is-info is-small" type="submit" id="delete-btn-{{id}}">Delete Post</button>
+        <a href="/edit/{{post.id}}" class="button is-info is-small" id="edit-btn">Edit Post</a>
+    </section>
+{{/each}}
 
-</section>
+<script src="/js/delete.js"></script>
