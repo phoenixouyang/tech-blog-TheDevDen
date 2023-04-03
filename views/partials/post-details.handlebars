@@ -1,6 +1,15 @@
 <section class="card">
-  <a href="/posts/{{id}}">
-    <header>{{title}}</header>
-    <p>{{description}}</p>
-  </a>
+  {{#if post.length}}
+    <a href="/posts/{{post.id}}">
+            <div class="level">
+                <div class="level-left">
+                    <header>{{post.title}}</header>
+                </div>
+                <div class="level-right">
+                    <p>Posted by {{post.user.username}} on {{format_date date_created}}</p>
+                </div>
+            </div>
+        </a>
+  {{/if}}
+
 </section>

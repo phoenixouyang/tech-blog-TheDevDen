@@ -1,0 +1,39 @@
+<div>
+    <h4 class="is-size-2">Welcome to {{username}}'s Dashboard!</h4>
+
+    <div class="">
+        <h3 class="is-size-4">Create a New Blog Post:</h3>
+
+        <form class="">
+            <div class="field">
+                <input class="input" type="text" id="new-post-title" placeholder="Title" />
+            </div>
+            
+            <div class="field">
+                <textarea class="textarea is-normal" id="new-post-description" placeholder="Your content here"></textarea>
+            </div>
+            <div class="field">
+                <button type="submit" id="create-btn" class="button is-info">Create</button>
+            </div>
+        </form>
+    </div>
+
+    {{#if posts.length}}
+        <h4 class="is-size-4">All Posts:</h4>
+        {{#each posts as |post|}}
+            <section class="card">
+                <a href="/posts/{{post.id}}">
+                    <div class="level">
+                        <div class="level-left">
+                            <header>{{post.title}}</header>
+                        </div>
+                        <div class="level-right">
+                            <p>Posted on {{format_date date_created}}</p>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        {{/each}}
+    {{/if}}
+</div>
+

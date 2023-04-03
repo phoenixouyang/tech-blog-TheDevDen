@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Developer's Den</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Developer's Den</title>
-  <link rel="stylesheet" href="/css/jass.css">
-</head>
-
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      The Developer's Den
-    </h1>
+  <body>
+    <header class="level has-background-info-dark">
+      <h1 class="level-left is-size-2 has-text-weight-semibold has-text-white">
+        The Developer's Den
+      </h1>
+      <nav class="level-right nav-bar">
+        <ul class="level">
+          <li class="level-item">
+            <a href="/" class="button is-white nav-btn is-outlined" id="nav-home">Home</a>
+          </li>
+          <li class="level-item">
+            <a href="/dashboard" class="button is-white nav-btn is-outlined" id="nav-dashboard">Dashboard</a>
+          </li>
+          {{#if logged_in}}
+            <li class="level-item">
+              <button class="button is-white nav-btn is-outlined" id="logout-btn">Logout</button>
+            </li>
+          {{else}}
+            <li class="level-item">
+              <a href="/login" class="button is-white nav-btn is-outlined" id="nav-login">Login</a>
+            </li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
     {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
+    <script src="/js/logout.js"></script>
     {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
-
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+  </body>
 
 </html>
