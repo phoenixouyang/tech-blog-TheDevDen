@@ -14,7 +14,7 @@ A developers blog site where users can publish, comment, edit and delete blog po
 N/A
 
 ## Usage
-You can access the deployed website [here!]()
+You can access the deployed website [here!](https://salty-wave-32472.herokuapp.com/)
 
 The homepage displays all posts on the site, and can be clicked to be expanded. If you would like to comment or create your own posts, you will need to create an account with a valid username and password.
 
