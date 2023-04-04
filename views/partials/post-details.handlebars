@@ -10,8 +10,10 @@
                 </div>
             </div>
         </a>
-        <button class="button is-info is-small" type="submit" id="delete-btn-{{id}}">Delete Post</button>
-        <a href="/edit/{{post.id}}" class="button is-info is-small" id="edit-btn">Edit Post</a>
+        <div class="ml-2">
+            <button class="button is-info is-small" type="submit" id="delete-btn-{{id}}">Delete Post</button>
+            <a href="/edit/{{post.id}}" class="button is-info is-small" id="edit-btn">Edit Post</a>
+        </div>
     </section>
 {{/each}}
 

@@ -1,6 +1,6 @@
-<section class="card">
+<section class="box p-5">
     <div class="level">
-        <div class="level-left">
+        <div class="level-left has-background-info-light">
             <header class="is-size-3 has-text-weight-medium">{{title}}</header>
         </div>
         <div class="level-right">
@@ -10,29 +10,29 @@
     <div class="post-description">
         {{description}}
     </div>
-<section>
-        <h4 class="is-size-4">Comments:</h4>
-        <div>
-            {{#each comments as |comment|}}
-                <section class="card comment-section">
-                    <div class="level">
-                        <div class="level-left">
-                            <header>{{comment.comment_text}}</header>
-                        </div>
-                        <div class="level-right">
-                            <p class="is-italic">Commented by {{comment.user.username}} on {{format_date date_created}}</p>
-                        </div>
+</section>
+<section class="box mt-5">
+    <h4 class="is-size-4">Comments:</h4>
+    <div>
+        {{#each comments as |comment|}}
+            <section class="card comment-section p-3">
+                <div class="level">
+                    <div class="level-left">
+                        <header>{{comment.comment_text}}</header>
                     </div>
-                </section>
-            {{/each}}
-            <section class="card">
-                <form class="comment-form" data-post_id={{id}}>
-                    <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
-                    <button class="button is-info is-small" type="submit" id="comment-btn">Comment</button>
-                </form>
+                    <div class="level-right">
+                        <p class="is-italic">Commented by {{comment.user.username}} on {{format_date date_created}}</p>
+                    </div>
+                </div>
             </section>
-        </div>
-    </section>
+        {{/each}}
+        <section class="card">
+            <form class="comment-form" data-post_id={{id}}>
+                <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
+                <button class="button is-info is-small m-2" type="submit" id="comment-btn">Comment</button>
+            </form>
+        </section>
+    </div>
 </section>
 
 <script src="/js/comment.js"></script>

@@ -1,5 +1,5 @@
 <div>
-    <h4 class="is-size-2">Welcome to {{username}}'s Dashboard!</h4>
+    <h4 class="is-size-2 has-background-info-light">Welcome to {{username}}'s Dashboard!</h4>
 
     <div class="create-blog">
         <h3 class="is-size-4">Create a New Blog Post:</h3>
@@ -19,7 +19,7 @@
     </div>
 
     {{#if posts.length}}
-        <h4 class="is-size-4">All Posts:</h4>
+        <h4 class="is-size-4 m-2">All Posts:</h4>
         {{> post-details}}
     {{/if}}
 </div>

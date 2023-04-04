@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth')
 
+// get all posts
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -27,6 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get post by id
 router.get('/posts/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -61,6 +63,7 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
+// get posts by specific user
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -82,6 +85,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// get specific edit page for a post
 router.get('/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -116,6 +120,7 @@ router.get('/edit/:id', async (req, res) => {
   }
 });
 
+// login route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
@@ -124,6 +129,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// signup route
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');

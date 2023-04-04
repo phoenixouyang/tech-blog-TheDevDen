@@ -12,6 +12,12 @@ const signupHandler = async (event) => {
       });
   
       if (response.ok) {
+        const response = await fetch('/api/users/login', {
+          method: 'POST',
+          body: JSON.stringify({ username, password }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        
         document.location.replace('/dashboard');
       } else {
         alert('Sorry, something went wrong. Please try again later.');
