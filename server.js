@@ -16,7 +16,10 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 900000 // session expires after 15 minutes
+    maxAge: 900000, // session expires after 15 minutes
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict'
   },
   resave: false,
   saveUninitialized: true,
